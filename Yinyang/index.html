@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>YinYang</title>
+</head>
+<style>
+
+    /*方法一：shapes*/
+    #yin-yang {
+        width: 96px;
+        box-sizing: content-box;
+        height: 48px;
+        background: #eee;
+        border-color: red;
+        border-style: solid;
+        border-width: 2px 2px 50px 2px;
+        border-radius: 100%;
+        position: relative;
+    }
+    #yin-yang:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        background: #eee;
+        border: 18px solid red;
+        border-radius: 100%;
+        width: 12px;
+        height: 12px;
+        box-sizing: content-box;
+    }
+    #yin-yang:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background: red;
+        border: 18px solid #eee;
+        border-radius: 100%;
+        width: 12px;
+        height: 12px;
+        box-sizing: content-box;
+    }
+
+    /*方法二：课程示例（未使用伪元素优化）*/
+    body{
+        background: #444;
+    }
+    /*太极图轮转——动画效果*/
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    #yinyang{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #000000 50%, #000000 100%);
+        position: relative;
+        margin: 100px auto;
+        animation-duration: 3s;
+        animation-name: spin;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+    #yinyang > .one{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: #000000;
+        position: absolute;
+        top: 50px;
+        left: 0;
+    }
+    #yinyang > .one > .circle{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        position: absolute;
+        left: 40px;
+        top: 40px;
+        background: #ffffff;
+    }
+    #yinyang > .two{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: #ffffff;
+        position: absolute;
+        top: 50px;
+        right:0;
+    }
+    #yinyang > .two > .circle{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        position: absolute;
+        right: 40px;
+        top: 40px;
+        background: #000000;
+    }
+</style>
+<body>
+
+<!--方法一：shapes-->
+<div id="yin-yang">&nbsp;</div>
+
+
+<!--方法二：课程示例（未使用伪元素优化）-->
+<div id="yinyang">
+    <div class="one">
+        <div class="circle"></div>
+    </div>
+    <div class="two">
+        <div class="circle"></div>
+    </div>
+</div>
+
+</body>
+</html>
